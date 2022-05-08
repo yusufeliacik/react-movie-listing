@@ -34,15 +34,15 @@ export const MovieDetail = () => {
         />
         <Card.Body>
           <Card.Title>{selector.data.Title}</Card.Title>
-          {Object.entries(selector.data).map((item) => {
+          {Object.entries(selector.data).map(([key, value], index) => {
             return (
-              <div className="mb-2">
-                {item[0] !== "Poster" &&
-                  item[0] !== "Title" &&
-                  typeof item[1] === "string" && (
+              <div className="mb-2" key={index}>
+                {key !== "Poster" &&
+                  key !== "Title" &&
+                  typeof value === "string" && (
                     <>
-                      <strong>{item[0]}: </strong>
-                      {item[1]}
+                      <strong>{key}: </strong>
+                      {value}
                     </>
                   )}
               </div>
