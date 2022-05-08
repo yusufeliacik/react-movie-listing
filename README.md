@@ -9,4 +9,4 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### `Stacks`
 
-React, Redux, Styled Components, Bootstrap, TypeScript with omdb API
+React, Redux, Styled Components, Bootstrap, TypeScript and Axios with omdb API
