@@ -36,6 +36,13 @@ export const MovieList = () => {
     );
   }, [dispatch, currentPage, filter]);
 
+  const onChangeFilter = (field: string, value: string) => {
+    setFilter((state) => ({ ...state, [field]: value }));
+    if (currentPage !== 1) {
+      setCurrentPage(1);
+    }
+  };
+
   return (
     <div className="p-5">
       <MovieListStyled>
@@ -43,9 +50,9 @@ export const MovieList = () => {
           searchValue={filter.search}
           typeValue={filter.type}
           yearValue={filter.year}
-          setSearch={(e) => setFilter((state) => ({ ...state, search: e }))}
-          setYear={(e) => setFilter((state) => ({ ...state, year: e }))}
-          setType={(e) => setFilter((state) => ({ ...state, type: e }))}
+          setSearch={(e) => onChangeFilter("search", e)}
+          setYear={(e) => onChangeFilter("year", e)}
+          setType={(e) => onChangeFilter("type", e)}
           typeOptions={MovieTypeSelectOptions}
         />
         {selector.loading !== "succeeded" && selector.loading !== "failed" && (
